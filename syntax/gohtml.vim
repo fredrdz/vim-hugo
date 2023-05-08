@@ -152,6 +152,6 @@ hi def link htmlHugoInclude Include
 hi def link htmlHugoFunction Function
 hi def link htmlHugoMethod Function
 
-let b:current_syntax = 'htmlhugo'
+let b:current_syntax = 'gohtml'
 
 " vim: nowrap

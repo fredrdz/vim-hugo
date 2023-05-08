@@ -1,12 +1,12 @@
 function! s:DetectGoTemplate()
   if findfile('.hugo_build.lock', '.;') !=# ''
-    set ft=htmlhugo
+    set ft=gohtml
   elseif search('{{\s*end\s*}}')
-    set ft=htmlhugo
+    set ft=gohtml
   elseif search('{{\s*$\k\+\s*:=')
-    set ft=htmlhugo
+    set ft=gohtml
   elseif search('{{\s*\.[A-Z]')
-    set ft=htmlhugo
+    set ft=gohtml
   endif
 endfunction
 
