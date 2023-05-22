@@ -123,6 +123,7 @@ for s:hugo_global_function in s:hugo_global_functions
   exe 'syn keyword htmlHugoFunction '. s:hugo_global_function .' contained containedin=htmlHugoBlock'
 endfor
 
+syn match htmlHugoDelimiters /{{-\?\|-\?}}/ contained containedin=htmlHugoBlock
 syn match htmlHugoAssignment /:=/ contained containedin=htmlHugoBlock
 syn match htmlHugoPipe /\|/ contained containedin=htmlHugoBlock
 syn match htmlHugoNumber /\<\d\+\([Ee]\d\+\)\?\>/ contained containedin=htmlHugoBlock
