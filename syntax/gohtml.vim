@@ -10,7 +10,7 @@ runtime! syntax/html.vim
 
 syn case match
 
-syn region htmlHugoBlock matchgroup=hugoDelimiters start=/{{-\?/ end=/-\?}}/
+syn region htmlHugoBlock matchgroup=hugoDelimiters start=/{{-\?/ end=/-\?}}/ contains=htmlHugoDelimiter
 syn cluster htmlPreProc add=htmlHugoBlock
 
 syn keyword htmlHugoInclude partial template contained containedin=htmlHugoBlock
@@ -124,20 +124,17 @@ for s:hugo_global_function in s:hugo_global_functions
 endfor
 
 syn match htmlHugoAssignment /:=/ contained containedin=htmlHugoBlock
-
 syn match htmlHugoPipe /\|/ contained containedin=htmlHugoBlock
-
 syn match htmlHugoNumber /\<\d\+\([Ee]\d\+\)\?\>/ contained containedin=htmlHugoBlock
 
 syn region htmlHugoString start=/\z(["`']\)/ end=/\z1/ skip=+\\\\\|\\\z1+ contained containedin=htmlHugoBlock
 syn region htmlHugoRawString start=/`/ end=/`/ contained containedin=htmlHugoBlock
-
 syn region htmlHugoComment start=+/\*+ end=+\*/+ matchgroup=Comment keepend extend contained containedin=htmlHugoBlock
 
 syn match htmlHugoMethod /\.[A-Z]\k\+/hs=s+1 contained containedin=htmlHugoBlock
 
 hi def link htmlHugoComment Comment
-hi def link htmlHugoDelimiters Delimiter
+hi def link htmlHugoDelimiters Special 
 hi def link htmlHugoString String
 hi def link htmlHugoRawString String
 hi def link htmlHugoNumber Number
@@ -153,5 +150,9 @@ hi def link htmlHugoFunction Function
 hi def link htmlHugoMethod Function
 
 let b:current_syntax = 'gohtml'
+
+" Highlighting the delimiters in white
+hi htmlHugoDelimiters guifg=gray
+hi htmlHugoDelimiters ctermfg=gray
 
 " vim: nowrap
