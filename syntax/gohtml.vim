@@ -123,16 +123,14 @@ for s:hugo_global_function in s:hugo_global_functions
   exe 'syn keyword htmlHugoFunction '. s:hugo_global_function .' contained containedin=htmlHugoBlock'
 endfor
 
-syn match htmlHugoDelimiters /{{-\?\|-\?}}/ contained containedin=htmlHugoBlock
 syn match htmlHugoAssignment /:=/ contained containedin=htmlHugoBlock
 syn match htmlHugoPipe /\|/ contained containedin=htmlHugoBlock
 syn match htmlHugoNumber /\<\d\+\([Ee]\d\+\)\?\>/ contained containedin=htmlHugoBlock
+syn match htmlHugoMethod /\.[A-Z]\k\+/hs=s+1 contained containedin=htmlHugoBlock
 
 syn region htmlHugoString start=/\z(["`']\)/ end=/\z1/ skip=+\\\\\|\\\z1+ contained containedin=htmlHugoBlock
 syn region htmlHugoRawString start=/`/ end=/`/ contained containedin=htmlHugoBlock
 syn region htmlHugoComment start=+/\*+ end=+\*/+ matchgroup=Comment keepend extend contained containedin=htmlHugoBlock
-
-syn match htmlHugoMethod /\.[A-Z]\k\+/hs=s+1 contained containedin=htmlHugoBlock
 
 hi def link htmlHugoComment Comment
 hi def link htmlHugoDelimiters Delimiter
